@@ -19,4 +19,6 @@ public class Sentence {
 
     private String response_sentence;
 
+    private Long elapsed_time;
+
 }

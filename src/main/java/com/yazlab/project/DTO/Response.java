@@ -14,4 +14,6 @@ import java.util.ArrayList;
 public class Response {
 
     private String response;
+
+    private Long time;
 }

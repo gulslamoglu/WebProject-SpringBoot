@@ -22,7 +22,7 @@ public class RecordController {
     @PostMapping
     public ResponseEntity<Response> post_req(@RequestBody Request request){
 
-        Response response=recordService.save_database(request);
+        Response response=recordService.output(request);
         return ResponseEntity.ok(response);
     }
 
