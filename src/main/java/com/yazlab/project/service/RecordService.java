@@ -7,6 +7,7 @@ import com.yazlab.project.repository.RecordRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RecordService {
@@ -19,7 +20,8 @@ public class RecordService {
         this.alg = alg;
     }
 
-    public Response output(Request request) {
+
+    public Response save_db(Request request){
         Long first_time=alg.startTime();
         ArrayList<String> temp = new ArrayList<>();
         ArrayList<String> array = request.getSentences();
@@ -35,6 +37,7 @@ public class RecordService {
             out_sentence += temp.get(i);
         }
         Long finish_time=alg.finishTime();
+
         Sentence record= new Sentence();
         record.setSentences(request.getSentences());
         record.setResponse_sentence(out_sentence);
@@ -42,6 +45,5 @@ public class RecordService {
         recordRepository.save(record);
 
         return new Response(out_sentence,finish_time-first_time);
-
     }
 }
